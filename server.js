@@ -13,11 +13,12 @@ server.listen(port)
 
 function onRequest (req, res) {
   let fileName = path.join(__dirname, 'public', 'index.html')
-  let file = fs.readFile(fileName, function(err, file) {
-    if(err) return res.end(err.message)
 
-    res.setHeader('Content-Type', 'text/html')
-    res.end(file)
+  res.setHeader('Content-Type', 'text/html')
+  let rs = fs.createReadStream(fileName)
+  rs.pipe(res)
+  rs.on('error', function(err) {
+    res.end(err.message)
   })
 }
 
