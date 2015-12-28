@@ -1,0 +1,14 @@
+{
+  "name": "yo",
+  "version": "0.0.1",
+  "description": "Platzi curso chat",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chat"
+  ],
+  "author": "Cristian Molina <megatux@gmail.com>",
+  "license": "BSD"
+}
