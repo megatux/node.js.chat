@@ -1,14 +1,22 @@
 {
-  "name": "yo",
+  "name": "chat-server",
   "version": "0.0.1",
-  "description": "Platzi curso chat",
+  "description": "Chat server from Platzi videos",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "keywords": [
     "chat"
   ],
+  "private": true,
   "author": "Cristian Molina <megatux@gmail.com>",
-  "license": "BSD"
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "mocha": "^2.3.4",
+    "chai": "^3.4.1",
+    "superagent": "^1.6.1"
+  }
 }
