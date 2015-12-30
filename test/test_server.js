@@ -19,9 +19,9 @@ describe('HTTP Server', function(){
     server.close();
   });
 
-  describe('any route', function(){
+  describe('serve main page', function(){
 
-    it('should say hello on /', function(done){
+    it('should say hello', function(done){
       request.get(baseUrl + '/').end(
         function(err, res){
           checkPageResult(err, res, "Hola Node");
@@ -29,16 +29,39 @@ describe('HTTP Server', function(){
         })
       })
 
-    it('should say hello on a random route', function(done){
-      const word = loremIpsum({count: 1, units: 'words'})
-      request.get(baseUrl + '/' + word).end(
+    it('should say hello', function(done){
+      request.get(baseUrl + '/index.html').end(
+        function(err, res){
+          checkPageResult(err, res, "Hola Node");
+          done();
+        })
+      })
+
+    it('should say hello', function(done){
+      request.get(baseUrl + '/index').end(
         function(err, res){
           checkPageResult(err, res, "Hola Node");
           done();
         })
       })
     })
+
+  describe('serve non existing page', function(){
+    it('should return 404', function(done){
+      const word = randomWord();
+      request.get(baseUrl + '/' + word).end(
+        function(err, res){
+          expect(res.status).to.equal(404);
+          done();
+        })
+      })
+    })
+
 })
+
+function randomWord() {
+  return loremIpsum({count: 1, units: 'words'})
+}
 
 function checkPageResult(err, res, content) {
   expect(err).to.be.null;
