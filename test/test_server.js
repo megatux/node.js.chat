@@ -21,7 +21,7 @@ describe('HTTP Server', function(){
 
   describe('serve main page', function(){
 
-    it('should say hello', function(done){
+    it('should say hello on /', function(done){
       request.get(baseUrl + '/').end(
         function(err, res){
           checkPageResult(err, res, "Hola Node");
@@ -29,16 +29,8 @@ describe('HTTP Server', function(){
         })
       })
 
-    it('should say hello', function(done){
+    it('should say hello on /index.html', function(done){
       request.get(baseUrl + '/index.html').end(
-        function(err, res){
-          checkPageResult(err, res, "Hola Node");
-          done();
-        })
-      })
-
-    it('should say hello', function(done){
-      request.get(baseUrl + '/index').end(
         function(err, res){
           checkPageResult(err, res, "Hola Node");
           done();

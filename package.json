@@ -12,7 +12,9 @@
   "private": true,
   "author": "Cristian Molina <megatux@gmail.com>",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "st": "^1.1.0"
+  },
   "devDependencies": {
     "chai": "^3.4.1",
     "lorem-ipsum": "^1.0.3",
